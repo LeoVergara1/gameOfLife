@@ -26,6 +26,9 @@ RSpec.describe "Any" do
     p "Hola"
 		expect( @organism.get_neighbors(0,0).size).to eq(8)
     expect( @organism.get_neighbors(1,1) ).to eq([1, 0, 1, 1, 1, 5, 9, 1])
+    expect( @organism.get_neighbors(2,0) ).to eq([1, 1, 1, 1, 9, 1, 1, 0])
+    expect( @organism.get_neighbors(1,2) ).to eq([0, 1, 1, 1, 1, 9, 1, 5])
+    expect( @organism.get_neighbors(2,2) ).to eq([1, 1, 1, 9, 5, 0, 1, 1])
     #expect( @organism.get_neighbors(0,0) ).to eq([1,1,1,1,0,1,1,1])
     #expect( @organism.get_neighbors(2,2) ).to eq([1,1,1,1,1,0,1,1])
 	end
