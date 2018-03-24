@@ -29,6 +29,10 @@ RSpec.describe "Any" do
     expect( @organism.get_neighbors(2,0) ).to eq([1, 1, 1, 1, 9, 1, 1, 0])
     expect( @organism.get_neighbors(1,2) ).to eq([0, 1, 1, 1, 1, 9, 1, 5])
     expect( @organism.get_neighbors(2,2) ).to eq([1, 1, 1, 9, 5, 0, 1, 1])
+    @organism.set_cells([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]])
+    expect( @organism.get_neighbors(2,2) ).to eq([6, 7, 8, 10, 12, 14, 15, 16])
+    expect( @organism.get_neighbors(3,3) ).to eq([6, 7, 8, 10, 12, 14, 15, 16])
+
     #expect( @organism.get_neighbors(0,0) ).to eq([1,1,1,1,0,1,1,1])
     #expect( @organism.get_neighbors(2,2) ).to eq([1,1,1,1,1,0,1,1])
 	end

@@ -19,13 +19,13 @@ class Organism
     p currentPosition
     if row == lower_limit and !(col == right_limit)
       p "Estas en el limite bajo"
-      rowAux = 3
+      rowAux = (@cells.size)
     elsif col == right_limit and !(row == lower_limit)
-      colAux = 3
+      colAux = (@cells[0].size)
       p "Estas em el limite derecho"
     elsif row == lower_limit and col == right_limit
-      rowAux = 3
-      colAux = 3
+      rowAux = (@cells.size)
+      colAux = (@cells[0].size)
       p "Es la esquina inferior"
     else
       p "Letra valida"
