@@ -2,25 +2,35 @@ class Organism
 	attr_accessor :cells
   attr_accessor :cells_clone
 	def initialize(cells)
-		@cells = [[1, 0, 1],
-							[1, 1, 1],
-							[1, 1, 1]]
+		@cells = [[1, 0, 1],[1, 1, 1],[5, 9, 1]]
 	end
 
 	def get_neighbors(row, col)
-    ##if row == (@cells[0].size-1)
-      ##[1,1,1,0,1,1,1,1]
-    nextcol = 1
-    if col == (@cells[0].size -1)
-      nextcol = -(@cells[0].size -1)
+    rowAux = 0
+    colAux = 0
+    puts "p"*100
+    p @cells
+    p "#{@cells[2][0]}"
+    lower_limit = (@cells.size) - 1
+    right_limit = (@cells[0].size) - 1
+    p "lower limit: #{lower_limit}"
+    p "right limit: #{right_limit}"
+    currentPosition = @cells[row][col]
+    p currentPosition
+    if row == lower_limit and !(col == right_limit)
+      p "Estas en el limite bajo"
+      rowAux = 7
+    elsif col == right_limit and !(row == lower_limit)
+      rowAux = 9
+      p "Estas em el limite derecho"
+    elsif row == lower_limit and col == right_limit
+      p "Es la esquina inferior"
+    else
+      p "Letra valida"
     end
-    nextrow = 1
-    if row ==( @cells.size -1)
-      nextrow = -(@cells.size -1)
-    end
-     [ @cells[row-1][col-1],@cells[row-1][col],@cells[row-1][col+nextcol],
-       @cells[row][col-1], @cells[row][col+nextcol],
-       @cells[row+nextrow][col-1], @cells[row+nextrow][col], @cells[row+nextrow][col+nextcol]]
+    neighbours = [@cells[row-1][col-1], @cells[row-1][col], @cells[row-1][(col+1)-(colAux)], @cells[row][col-1], @cells[row][(col+1)-(colAux)], @cells[(row+1)-(rowAux)][col-1], @cells[(row+1)-(rowAux)][col], @cells[(row+1)-(rowAux)][(col+1)-(colAux)]]
+    #@cells[(row+1)-(rowAux)][col-1], @cells[(row+1)-(rowAux)][col], @cells[(row+1)-(rowAux)][(col+1)-(colAux)
+    neighbours
 	end
 
   def set_cells(cells)
