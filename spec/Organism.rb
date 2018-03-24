@@ -2,21 +2,18 @@ class Organism
 	attr_accessor :cells
   attr_accessor :cells_clone
 	def initialize(cells)
-		@cells = [[1, 0, 1],[1, 1, 1],[5, 9, 1]]
+		@cells = [[1, 0, 1],[1, 1, 1],[1, 1, 1]]
 	end
 
 	def get_neighbors(row, col)
     rowAux = 0
     colAux = 0
-    puts "p"*100
-    p @cells
-    p "#{@cells[2][0]}"
     lower_limit = (@cells.size) - 1
     right_limit = (@cells[0].size) - 1
-    p "lower limit: #{lower_limit}"
-    p "right limit: #{right_limit}"
+#    p "lower limit: #{lower_limit}"
+#    p "right limit: #{right_limit}"
     currentPosition = @cells[row][col]
-    p currentPosition
+#    p currentPosition
     if row == lower_limit and !(col == right_limit)
       p "Estas en el limite bajo"
       rowAux = (@cells.size)
@@ -41,8 +38,12 @@ class Organism
 
   def prepare_to_evolution(row, col)
     next_state =(get_neighbors(row, col).count(1) < 2 or get_neighbors(row, col).count(1) > 3) ? 0 :1
-    ##p "Next State for #{row}-#{col} is #{next_state}"
-    p get_neighbors(row, col)
+ #   p "2"*10
+     p @cells
+     p get_neighbors(row, col)
+ #   p get_neighbors(row, col).count(1)
+ #   p "Next State for #{row}-#{col} is #{next_state}"
+ #   p get_neighbors(row, col)
     next_state
   end
 
